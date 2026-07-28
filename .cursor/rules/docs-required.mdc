@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+description: Documentation and logging boundaries for this repo
+---
+- Every exported function MUST have a JSDoc comment describing params and return value.
+- Never use console.log anywhere under src/ — use the logger module instead.

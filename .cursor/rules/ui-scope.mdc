@@ -1,0 +1,5 @@
+---
+globs: src/ui/**
+description: UI-layer conventions
+---
+UI components must be pure functions; state lives in hooks only.
