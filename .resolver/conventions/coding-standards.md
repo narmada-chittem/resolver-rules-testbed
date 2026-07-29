@@ -4,7 +4,7 @@ description: Active coding rules enforced by agent guidance files in this repo
 type: convention
 scope: global
 updated: '2026-07-29'
-captured_sha: 9200bbccacdc9ae41e3ddab7b447e713ba288db7
+captured_sha: f9d4b6f947a5de8084e9416cda0627b26b14e020
 sources:
   - AGENTS.md
   - frontend/AGENTS.md
