@@ -9,3 +9,11 @@ export function greet(name: string): string {
 export function farewell(name: string): string {
   return `Goodbye, ${name}`;
 }
+
+/**
+ * @param msg - The message to whisper.
+ * @returns The message converted to lowercase.
+ */
+export function whisper(msg: string): string {
+  return msg.toLowerCase();
+}
