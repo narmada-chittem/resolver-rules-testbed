@@ -9,3 +9,11 @@ export function greet(name: string): string {
 export function farewell(name: string): string {
   return `Goodbye, ${name}`;
 }
+
+/**
+ * @param msg - The message to shout.
+ * @returns The message converted to uppercase.
+ */
+export function shout(msg: string): string {
+  return msg.toUpperCase();
+}
