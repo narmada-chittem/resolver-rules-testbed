@@ -4,11 +4,10 @@ description: What this repository is and its single production file
 type: knowledge
 scope: global
 updated: 2026-07-29 (IONE-959)
-captured_sha: 64ff795f957a52dbcae8f10a45c42682e084337d
+captured_sha: 20777d225d295bb31f4b4b2a6333d528c46cfc0e
 sources:
   - src/greeter.ts
 ---
-
 
 # Repository Overview
 
@@ -18,9 +17,10 @@ sources:
 
 The entire working codebase is one file:
 
-- `src/greeter.ts` — exports two functions:
+- `src/greeter.ts` — exports three functions:
   - `greet(name: string): string` — returns `` `Hello, ${name}` ``
-  - `farewell(name: string): string` — returns `` `Goodbye, ${name}` `` (has JSDoc; `greet` does not)
+  - `farewell(name: string): string` — returns `` `Goodbye, ${name}` `` (has JSDoc)
+  - `shout(msg: string): string` — returns `msg.toUpperCase()` (has JSDoc)
 
 There are no build scripts, test runner configs, `package.json`, CI manifests, or `tsconfig.json` in the tree. The repo is intentionally skeletal.
 
