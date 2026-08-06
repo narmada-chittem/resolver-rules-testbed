@@ -5,7 +5,7 @@ type: convention
 scope:
   - src/ui/**
 updated: 2026-08-06 (IONE-959)
-captured_sha: 2476ffcd503ae45ee7783786200d829bfe38f606
+captured_sha: a6d7a042f1ff12cbfcf9c2690ebcfaf7fd7e4432
 sources:
   - .cursor/rules/ui-scope.mdc
 ---
