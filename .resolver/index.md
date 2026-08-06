@@ -2,6 +2,7 @@
 
 ## knowledge
 
+- `knowledge/architecture.md` · global · Real system shape — a single leaf module, not the monorepo CLAUDE.md describes
 - `knowledge/overview.md` · global · What this repo actually contains — read before trusting CLAUDE.md's project description
 
 ## conventions
