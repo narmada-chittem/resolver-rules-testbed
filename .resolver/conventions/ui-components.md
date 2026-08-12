@@ -4,11 +4,12 @@ description: Pure-function/hooks-only rule for src/ui — read before adding any
 type: convention
 scope:
   - src/ui/**
-updated: 2026-08-06 (IONE-959)
-captured_sha: 2476ffcd503ae45ee7783786200d829bfe38f606
+updated: 2026-08-12 (IONE-959)
+captured_sha: 8aef8a3ba47b862bfccdac05591e88c6912db492
 sources:
   - .cursor/rules/ui-scope.mdc
 ---
+
 
 See `.cursor/rules/ui-scope.mdc`: UI components under `src/ui/**` must be pure functions, with state kept in hooks only.
 
