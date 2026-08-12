@@ -4,7 +4,7 @@ description: JSDoc, logging, and const-vs-let rules for src/ — read before add
 type: convention
 scope: global
 updated: 2026-08-06 (IONE-959)
-captured_sha: ba17ef535c50fb7e18acfe34415fc2f51b2b3476
+captured_sha: ecd80ef8a68c3f3215febaa6906216040e76f258
 sources:
   - src/greeter.ts
   - .cursor/rules/docs-required.mdc

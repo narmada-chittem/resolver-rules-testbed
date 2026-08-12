@@ -4,7 +4,7 @@ description: What this repo actually contains — read before trusting CLAUDE.md
 type: knowledge
 scope: global
 updated: 2026-08-06 (IONE-959)
-captured_sha: 2476ffcd503ae45ee7783786200d829bfe38f606
+captured_sha: ecd80ef8a68c3f3215febaa6906216040e76f258
 sources:
   - src/greeter.ts
   - README.md

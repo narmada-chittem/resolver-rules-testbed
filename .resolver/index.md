@@ -2,6 +2,7 @@
 
 ## knowledge
 
+- `knowledge/architecture.md` · global · System shape and module relationships — read when onboarding or tracing data flow
 - `knowledge/overview.md` · global · What this repo actually contains — read before trusting CLAUDE.md's project description
 
 ## conventions
