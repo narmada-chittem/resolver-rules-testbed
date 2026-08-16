@@ -2,7 +2,7 @@
  * @param name - The name to capitalize.
  * @returns The name with its first character uppercased.
  */
-export function capitalize(name: string): string {
+export function capitalizeName(name: string): string {
   return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
@@ -11,7 +11,7 @@ export function capitalize(name: string): string {
  * @returns A greeting string addressed to the given name.
  */
 export function greet(name: string): string {
-  return `Hello, ${capitalize(name)}`;
+  return `Hello, ${capitalizeName(name)}`;
 }
 
 /**
