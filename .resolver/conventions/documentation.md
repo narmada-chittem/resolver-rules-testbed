@@ -1,5 +1,4 @@
 ---
-broken_yaml: [unclosed
 name: documentation
 description: JSDoc, logging, and const-vs-let rules for src/ — read before adding or editing exported functions
 type: convention
