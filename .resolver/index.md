@@ -2,6 +2,7 @@
 
 ## knowledge
 
+- `knowledge/architecture.md` · global · The system's real shape — a single-module script repo with no services, build, or runtime to diagram
 - `knowledge/overview.md` · global · What this repo actually contains — read before trusting CLAUDE.md's project description
 
 ## conventions

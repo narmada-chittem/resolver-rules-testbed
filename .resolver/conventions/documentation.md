@@ -4,10 +4,13 @@ description: JSDoc, logging, and const-vs-let rules for src/ — read before add
 type: convention
 scope: global
 updated: 2026-08-06 (IONE-959)
-captured_sha: ba17ef535c50fb7e18acfe34415fc2f51b2b3476
+captured_sha: ecd80ef8a68c3f3215febaa6906216040e76f258
 sources:
   - src/greeter.ts
   - .cursor/rules/docs-required.mdc
+sources_sha256:
+  .cursor/rules/docs-required.mdc: 308217676fe8e94971b7c762a454a51398766a4bfaee6f9b756e4d55d315e9ad
+  src/greeter.ts: 1159d8a1a4522df223ec4499348a8c7304c265ae6de89e59430a5882c5b83f4b
 ---
 
 See `.cursor/rules/docs-required.mdc` (alwaysApply) for the full rule set: every exported function under `src/` must carry a JSDoc comment, `console.log` is banned under `src/` (use the logger module), and `const` is preferred over `let`.
