@@ -4,28 +4,35 @@ description: The system's real shape — a single-module script repo with no ser
 type: knowledge
 scope: global
 updated: 2026-08-16 (IONE-959)
-captured_sha: ecd80ef8a68c3f3215febaa6906216040e76f258
+captured_sha: 32773c3c3a8a8a257417aee9868dd483e0e4abb4
 sources:
   - src/greeter.ts
+  - src/greeter.test.ts
   - README.md
 sources_sha256:
   README.md: 8b2ce17aca559e64a260327be1cb60fdf3da02c3bf2a55e5e178433ef2e828d1
-  src/greeter.ts: 1159d8a1a4522df223ec4499348a8c7304c265ae6de89e59430a5882c5b83f4b
+  src/greeter.test.ts: 61148d49e06ac9d184f1401c819b7dcc3f8c1bcff36aa6491bf15ab215a57d32
+  src/greeter.ts: a3c557cd3696b631b9f42d1fdb5dcd69fcfdebe90318715ad96c358485cd1559
 ---
 
-Per `README.md` and [[overview]] (`knowledge/overview.md`), this repo is a seeded testbed for a resolver+ingestion test matrix, not a running application. The entire working tree's code is one file, `src/greeter.ts`. There is no `package.json`, no build config, no entrypoint, no server process, and no `frontend/` source (only `frontend/AGENTS.md`, a guidance doc with no code alongside it) — so there are no services, processes, or cross-module imports to draw an architecture diagram around.
+Per `README.md` and [[overview]] (`knowledge/overview.md`), this repo is a seeded testbed for a resolver+ingestion test matrix, not a running application. The working tree's source is one file, `src/greeter.ts`, plus a test file `src/greeter.test.ts` that imports from it. There is still no `package.json`, no build config, no entrypoint, no server process, and no `frontend/` source (only `frontend/AGENTS.md`, a guidance doc with no code alongside it) — so there are no services, processes, or multi-module architecture to diagram.
 
 ```mermaid
 flowchart TD
     greeter["src/greeter.ts"]
+    capitalizeName["capitalizeName(name): string"]
     greet["greet(name): string"]
     farewell["farewell(name): string"]
+    test["src/greeter.test.ts"]
 
+    greeter --> capitalizeName
     greeter --> greet
     greeter --> farewell
+    greet --> capitalizeName
+    test --> greeter
 ```
 
-Both `greet` and `farewell` are standalone pure functions exported from the same module; neither calls the other, and no other file in the repo imports from `greeter.ts`, so the module currently has zero in-repo consumers.
+`greet` now delegates to the extracted `capitalizeName` helper (both verb-first, per the naming rule in [[ingested-agents]] AGENTS.md). `src/greeter.test.ts` is the first in-repo consumer of `greeter.ts`'s exports, using Node's built-in `node:test`/`node:assert` runner.
 
 ## Divergences
 
