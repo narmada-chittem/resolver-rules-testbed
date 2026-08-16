@@ -19,5 +19,5 @@ export function greet(name: string): string {
  * @returns A goodbye string addressed to the given name.
  */
 export function farewell(name: string): string {
-  return `Goodbye, ${name}`;
+  return `Goodbye, ${capitalizeName(name)}`;
 }
