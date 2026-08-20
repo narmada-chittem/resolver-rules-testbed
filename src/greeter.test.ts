@@ -13,3 +13,7 @@ test('capitalizeName returns an empty string for empty input', () => {
 test('greet capitalizes the name via the helper', () => {
   assert.equal(greet('alice'), 'Hello, Alice');
 });
+
+test('greet returns "Hello, " for an empty name', () => {
+  assert.equal(greet(''), 'Hello, ');
+});
