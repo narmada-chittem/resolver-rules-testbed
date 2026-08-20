@@ -7,7 +7,6 @@
 
 ## conventions
 
-- `conventions/documentation.md` · global · JSDoc, logging, and const-vs-let rules for src/ — read before adding or editing exported functions
 - `conventions/ingested-agents.md` · global · Team agents-md rules from AGENTS.md
 - `conventions/ingested-cursor-rules-docs-required.md` · global · Documentation and logging boundaries for this repo
 - `conventions/ingested-cursor-rules-ui-scope.md` · src/ui/** · UI-layer conventions
