@@ -37,8 +37,6 @@ export async function retryRequest<T extends RetryableResponse>(
   requestFn: RequestFn<T>,
   delayFn: DelayFn = sleep,
 ): Promise<T> {
-  let lastError: unknown;
-
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
     try {
       const response = await requestFn();
@@ -47,7 +45,6 @@ export async function retryRequest<T extends RetryableResponse>(
       }
       await delayFn(computeBackoffMs(attempt));
     } catch (error) {
-      lastError = error;
       if (attempt === MAX_ATTEMPTS) {
         throw error;
       }
@@ -55,5 +52,5 @@ export async function retryRequest<T extends RetryableResponse>(
     }
   }
 
-  throw lastError;
+  throw new Error('unreachable');
 }
