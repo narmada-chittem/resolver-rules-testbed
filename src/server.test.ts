@@ -8,7 +8,11 @@ test('GET /health returns 200 with the JSON liveness payload', async () => {
 
   try {
     await new Promise<void>((resolve) => server.listen(0, resolve));
-    const { port } = server.address() as { port: number };
+    const address = server.address();
+    if (!address || typeof address === 'string') {
+      throw new Error('Expected server to listen on a network port');
+    }
+    const { port } = address;
 
     const { statusCode, contentType, body } = await new Promise<{
       statusCode: number | undefined;
@@ -43,7 +47,11 @@ test('GET /unknown returns 404', async () => {
 
   try {
     await new Promise<void>((resolve) => server.listen(0, resolve));
-    const { port } = server.address() as { port: number };
+    const address = server.address();
+    if (!address || typeof address === 'string') {
+      throw new Error('Expected server to listen on a network port');
+    }
+    const { port } = address;
 
     const statusCode = await new Promise<number | undefined>((resolve, reject) => {
       http.get(`http://127.0.0.1:${port}/unknown`, (res) => {
@@ -63,7 +71,11 @@ test('POST /health returns 404', async () => {
 
   try {
     await new Promise<void>((resolve) => server.listen(0, resolve));
-    const { port } = server.address() as { port: number };
+    const address = server.address();
+    if (!address || typeof address === 'string') {
+      throw new Error('Expected server to listen on a network port');
+    }
+    const { port } = address;
 
     const statusCode = await new Promise<number | undefined>((resolve, reject) => {
       const req = http.request(

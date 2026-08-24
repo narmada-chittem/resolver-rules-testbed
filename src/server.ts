@@ -1,4 +1,4 @@
-import { createServer, IncomingMessage, ServerResponse } from 'node:http';
+import { createServer, IncomingMessage, ServerResponse, Server } from 'node:http';
 import { getHealthStatus } from './health';
 
 /**
@@ -23,10 +23,10 @@ export function handleRequest(req: IncomingMessage, res: ServerResponse): void {
 /**
  * @returns A new `node:http` server that routes requests via `handleRequest`.
  */
-export function createHealthServer() {
+export function createHealthServer(): Server {
   return createServer(handleRequest);
 }
 
-if (require.main === module) {
+if (import.meta.url === `file://${process.argv[1]}`) {
   createHealthServer().listen(Number(process.env.PORT) || 3000);
 }
