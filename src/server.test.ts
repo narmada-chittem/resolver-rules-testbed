@@ -37,3 +37,49 @@ test('GET /health returns 200 with the JSON liveness payload', async () => {
     server.close();
   }
 });
+
+test('GET /unknown returns 404', async () => {
+  const server = createHealthServer();
+
+  try {
+    await new Promise<void>((resolve) => server.listen(0, resolve));
+    const { port } = server.address() as { port: number };
+
+    const statusCode = await new Promise<number | undefined>((resolve, reject) => {
+      http.get(`http://127.0.0.1:${port}/unknown`, (res) => {
+        res.resume();
+        res.on('end', () => resolve(res.statusCode));
+      }).on('error', reject);
+    });
+
+    assert.equal(statusCode, 404);
+  } finally {
+    server.close();
+  }
+});
+
+test('POST /health returns 404', async () => {
+  const server = createHealthServer();
+
+  try {
+    await new Promise<void>((resolve) => server.listen(0, resolve));
+    const { port } = server.address() as { port: number };
+
+    const statusCode = await new Promise<number | undefined>((resolve, reject) => {
+      const req = http.request(
+        `http://127.0.0.1:${port}/health`,
+        { method: 'POST' },
+        (res) => {
+          res.resume();
+          res.on('end', () => resolve(res.statusCode));
+        },
+      );
+      req.on('error', reject);
+      req.end();
+    });
+
+    assert.equal(statusCode, 404);
+  } finally {
+    server.close();
+  }
+});
