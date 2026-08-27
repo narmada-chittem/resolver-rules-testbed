@@ -29,7 +29,7 @@ export function formatContactLine(contact: ContactRecord): string {
   const trimmedPhone = contact.phone?.trim();
   const hasPhone = trimmedPhone !== undefined && trimmedPhone.length > 0;
   if (hasPhone) {
-    return `${name} <${contact.email}> - ${contact.phone}`;
+    return `${name} <${contact.email}> - ${trimmedPhone}`;
   }
   return `${name} <${contact.email}>`;
 }
