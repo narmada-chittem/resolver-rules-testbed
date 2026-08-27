@@ -10,3 +10,5 @@ d237b1a3-d8ea-486e-9423-3290859305b9: correct conventions/documentation.md — g
 2026-08-16 · backfill · added knowledge/architecture.md — single-module diagram of src/greeter.ts, flagging CLAUDE.md's Dapr/Postgres/GraphQL/Kubernetes claims as non-existent in this repo. Skipped knowledge/data-model.md — no database schema in the repo.
 ab82382e-d9f3-4225-b4ff-d41e6bdfa00f: regenerate knowledge/architecture.md — added capitalizeName helper and src/greeter.test.ts (first in-repo consumer) to the module diagram
 ab82382e-d9f3-4225-b4ff-d41e6bdfa00f: regenerate knowledge/overview.md — noted new capitalizeName export, greet's delegation to it, and the new node:test-based src/greeter.test.ts (still no package.json/test-runner config)
+2772398b-8bb9-441f-bd76-cbd19150795b: regenerate knowledge/overview.md — repo now has two independent source modules (greeter.ts, contacts.ts), not one
+2772398b-8bb9-441f-bd76-cbd19150795b: regenerate knowledge/architecture.md — diagram and description updated to include the new standalone src/contacts.ts module
