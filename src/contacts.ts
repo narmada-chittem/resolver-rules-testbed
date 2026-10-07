@@ -16,3 +16,12 @@ function resolveDisplayName(contact: ContactRecord): string {
   const trimmed = (contact.fullName ?? '').trim();
   return trimmed.length > 0 ? trimmed : contact.email.split('@')[0];
 }
+
+/**
+ * @param contact - The contact record to format.
+ * @returns A line shaped "Full Name <email>", or "Full Name <email> - phone" when a phone is present.
+ */
+export function formatContactLine(contact: ContactRecord): string {
+  const base = `${resolveDisplayName(contact)} <${contact.email}>`;
+  return contact.phone ? `${base} - ${contact.phone}` : base;
+}
