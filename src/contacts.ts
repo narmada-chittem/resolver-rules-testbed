@@ -25,3 +25,13 @@ export function formatContactLine(contact: ContactRecord): string {
   const base = `${resolveDisplayName(contact)} <${contact.email}>`;
   return contact.phone ? `${base} - ${contact.phone}` : base;
 }
+
+/**
+ * @param contacts - The contact records to list.
+ * @returns One formatted line per contact, sorted case-insensitively by display name (the email local part when fullName is blank).
+ */
+export function formatDirectory(contacts: ContactRecord[]): string[] {
+  return [...contacts]
+    .sort((a, b) => resolveDisplayName(a).toLowerCase().localeCompare(resolveDisplayName(b).toLowerCase()))
+    .map(formatContactLine);
+}
