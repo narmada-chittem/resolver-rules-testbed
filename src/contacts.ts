@@ -7,3 +7,12 @@
  * @property team - The contact's team, if known; it does not affect formatting.
  */
 export type ContactRecord = { fullName: string; email: string; phone?: string; team?: string };
+
+/**
+ * @param contact - The contact record whose display name to resolve.
+ * @returns The trimmed full name, or the email local part when the full name is missing or blank.
+ */
+function resolveDisplayName(contact: ContactRecord): string {
+  const trimmed = (contact.fullName ?? '').trim();
+  return trimmed.length > 0 ? trimmed : contact.email.split('@')[0];
+}
