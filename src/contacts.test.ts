@@ -22,3 +22,24 @@ test('formatContactLine treats an empty phone as no phone', () => {
     'Ada Lovelace <ada@example.com>',
   );
 });
+
+test('formatContactLine falls back to the email local part for an empty fullName', () => {
+  assert.equal(
+    formatContactLine({ fullName: '', email: 'grace@example.com' }),
+    'grace <grace@example.com>',
+  );
+});
+
+test('formatContactLine falls back to the email local part for a whitespace-only fullName', () => {
+  assert.equal(
+    formatContactLine({ fullName: '   ', email: 'grace@example.com' }),
+    'grace <grace@example.com>',
+  );
+});
+
+test('formatContactLine trims a valid fullName', () => {
+  assert.equal(
+    formatContactLine({ fullName: '  Grace Hopper  ', email: 'grace@example.com' }),
+    'Grace Hopper <grace@example.com>',
+  );
+});
