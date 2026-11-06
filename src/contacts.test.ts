@@ -43,3 +43,31 @@ test('formatContactLine trims a valid fullName', () => {
     'Grace Hopper <grace@example.com>',
   );
 });
+
+test('formatDirectory sorts case-insensitively and uses the fallback value as the key', () => {
+  assert.deepEqual(
+    formatDirectory([
+      { fullName: 'charlie Brown', email: 'c@example.com' },
+      { fullName: '', email: 'bob@example.com' },
+      { fullName: 'Alice Smith', email: 'a@example.com', phone: '555-0101' },
+    ]),
+    [
+      'Alice Smith <a@example.com> - 555-0101',
+      'bob <bob@example.com>',
+      'charlie Brown <c@example.com>',
+    ],
+  );
+});
+
+test('formatDirectory does not mutate the input array', () => {
+  const contacts = [
+    { fullName: 'charlie Brown', email: 'c@example.com' },
+    { fullName: 'Alice Smith', email: 'a@example.com' },
+  ];
+  formatDirectory(contacts);
+  assert.equal(contacts[0].fullName, 'charlie Brown');
+});
+
+test('formatDirectory returns an empty list for no contacts', () => {
+  assert.deepEqual(formatDirectory([]), []);
+});
